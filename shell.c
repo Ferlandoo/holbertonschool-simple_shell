@@ -11,7 +11,8 @@ int main(int __attribute__((unused)) argc, char *argv[])
 {
 	char *line = NULL;
 	size_t buf_size = 0;
-	int characters = 0;
+	ssize_t characters = 0;
+	char *name;
 
 	name = argv[0];
 	while (1)
@@ -54,7 +55,8 @@ int command_read(char *s)
 	token = strtok(s, " ");
 	while (token != NULL && i < 100)
 	{
-		cmd_array[i++] = token;
+		cmd_array[i] = token;
+		i++;
 		token = strtok(NULL, " ");
 	}
 	cmd_array[i] = NULL;
@@ -74,20 +76,17 @@ int execute(char *cmd_arr[])
 	int status;
 	char *name;
 
-	exe_path = command_path(cmd_arr[0]);
+	name = cmd_arr[0];
+	exe_path = command_path(name);
 	if (exe_path == NULL)
 	{
-		if(name != NULL)
-		{
-			fprintf(stderr, "%s: %s: not found", name, cmd_arr[0]);
-			return (3);
-		}
+		fprintf(stderr, "%s: %s: not found", name, cmd_arr[0]);
 		return (3);
 	}
 	pid = fork();
 	if (pid < 0)
 	{
-		perror("Error....");
+		perror("Error at creating a child process\n");
 		return (-1);
 	}
 	if (pid > 0)
