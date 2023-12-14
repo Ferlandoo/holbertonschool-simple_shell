@@ -10,7 +10,6 @@
 int main(int __attribute__((unused)) argc, char *argv[])
 {
 	char *line = NULL;
-	char* name;
 	size_t buf_size = 0;
 	int characters = 0;
 
@@ -78,7 +77,11 @@ int execute(char *cmd_arr[])
 	exe_path = command_path(cmd_arr[0]);
 	if (exe_path == NULL)
 	{
-		fprintf(stderr, "%s: %s: not found", name, cmd_arr[0]);
+		if(name != NULL)
+		{
+			fprintf(stderr, "%s: %s: not found", name, cmd_arr[0]);
+			return (3);
+		}
 		return (3);
 	}
 	pid = fork();
