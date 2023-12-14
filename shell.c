@@ -10,9 +10,9 @@
 int main(int __attribute__((unused)) argc, char *argv[])
 {
 	char *line = NULL;
-	char *name;
+	char* name;
 	size_t buf_size = 0;
-	size_t characters = 0;
+	int characters = 0;
 
 	name = argv[0];
 	while (1)
@@ -44,7 +44,6 @@ int main(int __attribute__((unused)) argc, char *argv[])
 int command_read(char *s)
 {
 	int i;
-	char *name;
 	char *token = NULL;
 	char *cmd_array[100];
 
