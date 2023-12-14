@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <string.h>
@@ -14,6 +14,7 @@ extern char **environ;
 int _printenv(void);
 char *_getenv(char *var);
 char *command_path(char *cmd);
-
+int command_read(char *s);
+int execute(char *cmd_arr[]);
 
 #endif
