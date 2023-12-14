@@ -6,7 +6,7 @@ This repository contains the source code for the **Holberton Simple Shell** proj
 
 To get started with this project, you can clone this repository using the following command:
 ```
-git clone https://github.com/Theemiss/simple_shell.git
+git clone https://github.com/Ferlandoo/holbertonschool-simple_shell.git
 ```
 Once you have cloned the repository, you can compile the program using the following command:
 ```
