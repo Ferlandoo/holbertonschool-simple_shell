@@ -12,7 +12,6 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *line = NULL;
 	size_t buf_size = 0;
 	ssize_t characters = 0;
-	char *name;
 
 	name = argv[0];
 	while (1)
