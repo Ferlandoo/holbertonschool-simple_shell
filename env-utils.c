@@ -8,19 +8,20 @@
 
 int _printenv(void)
 {
-	int i, file_descr = 1;
+	int i = 0;
+	char *str = environ[0];
 
-	if (environ == NULL)
+	if (str == NULL)
 	{
 		fprintf(stderr, "Environment variable is null");
 		return (-1);
 	}
 	i = 0;
-	while (environ[i] != NULL)
+	while (str[i] != '\0')
 	{
-		write(file_descr, environ[0], strlen(environ[0]));
-		write(file_descr, "\n", 1);
-		environ[i];
+		write(1, str, strlen(str));
+		write(1, "\n", 1);
+		str = environ[i];
 		++i;
 	}
 	return (0);
