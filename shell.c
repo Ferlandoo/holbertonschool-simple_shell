@@ -16,7 +16,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	name = argv[0];
 	while (1)
 	{
-		write(1, "Welcome to Shell $ ", 19);
+		write(1, "$ ", 19);
 		characters = getline(&line, &buf_size, stdin);
 		if (characters == -1)
 		{
