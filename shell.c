@@ -16,7 +16,8 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	name = argv[0];
 	while (1)
 	{
-		write(1, "$ ", 19);
+		if (isatty(STDIN_FILENO) == 1)
+			write(1, "$ ", 2);
 		characters = getline(&line, &buf_size, stdin);
 		if (characters == -1)
 		{
