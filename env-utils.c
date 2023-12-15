@@ -18,8 +18,9 @@ int _printenv(void)
 	i = 0;
 	while (environ[i] != NULL)
 	{
-		write(file_descr, environ[i], strlen(environ[i]));
+		write(file_descr, environ[0], strlen(environ[0]));
 		write(file_descr, "\n", 1);
+		environ[i];
 		++i;
 	}
 	return (0);
