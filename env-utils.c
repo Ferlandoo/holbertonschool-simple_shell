@@ -20,7 +20,7 @@ int _printenv(void)
 	{
 		write(file_descr, environ[i], strlen(environ[i]));
 		write(file_descr, "\n", 1);
-		i++;
+		++i;
 	}
 	return (0);
 }
