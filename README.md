@@ -1,35 +1,59 @@
 # Simple Shell (Holberton School) 
 
-This repository contains the source code for the **Holberton Simple Shell** project, which is a shell-like program written in C. The goal of this project is to help students understand how a shell works and to learn about the environment, functions, system calls, and process creation using `execve`.
+This project presents a minimalistic shell implementation in C, offering users a fundamental command-line interface to interact with the underlying operating system. In Linux/Unix systems, a shell serves as a crucial interface between the user and the kernel, facilitating the execution of commands and managing processes. In the context of this simple shell, it performs three primary functions: allowing users to gracefully exit the shell, displaying environment variables, and executing generic commands. The implementation leverages system calls like **fork**, **execve**, and **wait** for process management and employs a straightforward approach to building command paths, ensuring a basic yet functional shell experience.
 
-## Getting Started
+## General workflow
+* **Reading the Command**: The shell uses the getline function to read user input and interpret the command.
+* **Command Execution**: The shell distinguishes between three functionalities:
+* **Exit**: The user can exit the shell by entering the '`exit`' command.
+* **Print Environment Variables**: The shell supports printing environment variables using a specific command.
+* **Generic Command Execution**: For generic commands, the shell relies on system calls. The key system calls involved are:
+    * **fork**: Creates a new process to execute the command.
+    * **execve**: Loads and executes the specified command in the new process.
+    * **wait**: Parent process waits for the child process to complete.
+* **Building the Command Path**: For executing generic commands, the shell builds the command path by obtaining the command from the Unix file system and appending "`/cmd`" to include the custom command.
 
-To get started with this project, you can clone this repository using the following command:
+## Installation and Usage of Program
+**Prerequisites**
+* C Compiler (e.g., GCC)
+
+**To use the shell, follow these steps:**
+
+* Clone the repository: 
 ```
 git clone https://github.com/Ferlandoo/holbertonschool-simple_shell.git
 ```
-Once you have cloned the repository, you can compile the program using the following command:
+* Navigate to the project directory: 
 ```
-gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+cd simple-shell
 ```
-You can then run the program by invoking `./hsh` in the same directory.
+* Compile the shell program: 
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+* Run the shell: 
+```
+./hsh
+```
 
-## Usage
+## Learning Objectives
 
-The Holberton Simple Shell program can handle two types of commands: built-ins and normal programs. Here is a list of built-in commands currently supported by the program:
+* **Syscalls:** Understanding and implementing system calls for process creation, file I/O, and more.
+* **Process:** Managing processes and understanding the parent-child relationship in a Unix-like environment.
+* **Environment:** Handling and manipulating the environment variables.
+* **Tokenization:** Breaking down input commands into tokens for processing.
+* **Shell Execution Flow:** Understanding the flow of a basic shell program from input to command execution.
 
-* `cd [directory]`: Switch to the specified directory (path).
-* `env`: Displays the environment variable.
-* `exit [exitstatus]`: Exit from the program with exitstatus value. 0 by default.
-* `getenv NAME`: Return the value of the NAME variable if it is in the environment.
-* `help [command]`: Displays the syntax for the command, or all commands.
-* `history`: Displays the last typed user.
-* `echo [$$]` or `[$?]` or `[$PATH]`: Return pid and exit statue and PATH.
-* Command Basicly Every Program in `$PATH`: It Support Single Word like `ls`. It Handle Path `ls /tmp` and Options Like `ls -l`.
+## Files contained in this repository 
 
-## More Info
-
-See the `man_1_simple_shell` man page to get info about syntax, sipnosis, etc.
+| Name  | Information |
+| ------------- | ------------- |
+| man_1_simple_shell | 	Man page of the `simple_shell`.  |
+| main.h  | Header file with standard libraries and custom prototypes.  |
+| command_path.c  | Function that find and return full path of a command.  |
+| env-utils.c | Functions that print and gets value of an environment variable. |
+| shell.c | Main function and two other functions that read and execute the commands on main.  |
+| AUTHORS | Authors of this project. |
 
 ## Credits
 
