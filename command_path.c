@@ -44,5 +44,7 @@ char *command_path(char *cmd)
 		token = strtok(NULL, ":");
 	}
 	free(path_copy);
+	if (stat(cmd, &buf) == 0)
+		return (strdup(cmd));
 	return (full_path);
 }
