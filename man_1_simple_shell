@@ -1,0 +1,28 @@
+.TH MAN 1 "15 Dec 2023" "2.2" "Shell man page"
+.SH NAME
+shell \- simple shell project of holberton school
+.SH SYNOPSIS
+.B shell
+.RI [OPTION]
+.RI [COMMAND]
+.SH DESCRIPTION
+The simple shell is a basic Unix shell that allows users to execute commands, manage processes, and interact with the system environment.
+.SH OPTIONS
+.RI -h, --help
+.RI 	Display help message and exit.
+.RI -v, --version
+.RI 	Display version information.
+.SH COMMANDS
+The shell supports standard Unix commands and the following built-in commands:
+.RI exit
+.RI 	Exit the shell.
+.RI env
+.RI 	Print the current environment variables.
+.RI help
+.RI Display help information.
+.SH AUTHOR
+Ferlando Beqaj, Eder Hodaj, Florjan Mecaj.
+.SH BUGS
+No detected bugs.
+.SH COPYRIGHT
+Free use of this software is granted under the terms of the GNU General Public License (GPL).
