@@ -51,8 +51,8 @@ int command_read(char *s)
 		return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
-	i = 0;
 	token = strtok(s, " ");
+	i = 0;
 	while (token != NULL && i < 100)
 	{
 		cmd_array[i] = token;
@@ -93,18 +93,11 @@ int execute(char *cmd_arr[])
 	{
 		wait(&status);
 	}
-	else
+	else if (pid == 0)
 	{
-		if (environ)
-		{
-			execve(exe_path, cmd_arr, environ);
-			exit(1);
-		}
-		else
-		{
-			execve(exe_path, cmd_arr, NULL);
-			exit(1);
-		}
+		execve(exe_path, cmd_arr, environ);
+		perror("Error");
+		exit(1);
 	}
 	free(exe_path);
 	return (0);
