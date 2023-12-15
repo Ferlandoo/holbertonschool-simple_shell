@@ -9,17 +9,26 @@ shell \- simple shell project of holberton school
 The simple shell is a basic Unix shell that allows users to execute commands, manage processes, and interact with the system environment.
 .SH OPTIONS
 .RI -h, --help
-.RI 	Display help message and exit.
+.PP
+ 	Display help message and exit.
+.PP
 .RI -v, --version
-.RI 	Display version information.
+.PP
+ 	Display version information.
 .SH COMMANDS
 The shell supports standard Unix commands and the following built-in commands:
+.PP
 .RI exit
-.RI 	Exit the shell.
+.PP
+ 	Exit the shell.
+.PP
 .RI env
-.RI 	Print the current environment variables.
+.PP
+ 	Print the current environment variables.
+.PP
 .RI help
-.RI Display help information.
+.PP
+ 	Display help information.
 .SH AUTHOR
 Ferlando Beqaj, Eder Hodaj, Florjan Mecaj.
 .SH BUGS
