@@ -50,6 +50,8 @@ int command_read(char *s)
 
 	if (strcmp(s, "exit") == 0)
 		return (2);
+	if (strcmp(s, " ") == 0)
+		return (0);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
