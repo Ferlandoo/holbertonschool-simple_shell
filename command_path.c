@@ -48,5 +48,5 @@ char *command_path(char *cmd)
 	free(path_copy);
 	if (stat(cmd, &buf) == 0)
 		return (strdup(cmd));
-	return (full_path);
+	return (NULL);
 }
