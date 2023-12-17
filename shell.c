@@ -21,7 +21,8 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		characters = getline(&line, &buf_size, stdin);
 		if (characters == -1)
 		{
-			perror("Error");
+			if (isatty(STDIN_FILENO) == 1)
+				write(1, "\n", 1);
 			break;
 		}
 		if (line[characters - 1] == '\n')
