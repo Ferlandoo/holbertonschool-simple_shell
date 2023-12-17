@@ -53,7 +53,8 @@ int command_read(char *s)
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == ' ')
-			return (0);
+			continue;
+		return (0);
 	}
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
