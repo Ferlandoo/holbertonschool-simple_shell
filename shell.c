@@ -31,8 +31,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			continue;
 		if (strcmp(line, "exit") == 0)
 			break;
+		if (line == NULL)
+			break;
 		if (command_read(line) == 2)
-			exit(2);
+			break;
 	}
 	free(line);
 	return (0);
