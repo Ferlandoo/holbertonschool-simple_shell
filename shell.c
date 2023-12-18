@@ -86,7 +86,8 @@ int execute(char *cmd_arr[])
 	exe_path = command_path(name);
 	if (exe_path == NULL)
 	{
-		fprintf(stderr, "%s: not found", name);
+		write(1, name, strlen(name));
+		write(1, ": not found\n", 12);
 		return (3);
 	}
 	pid = fork();
