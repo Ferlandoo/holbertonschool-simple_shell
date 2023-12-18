@@ -101,6 +101,15 @@ int execute(char *cmd_arr[])
 	if (pid > 0)
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+		{
+			int exit_status = WEXITSTATUS(status);
+			if (exit_status != 0)
+			{
+				printf("Command '%s' failed with exit status %d\n", name, exit_status);
+				return (exit_status);
+			}
+		}
 	}
 	else if (pid == 0)
 	{
