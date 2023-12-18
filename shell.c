@@ -55,7 +55,22 @@ int command_read(char *s)
 		return (_printenv());
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' && s[i + 1] == ' ' && s[i + 2] == ' ')
+		if (s[i] == ' ' && s[i + 1] == ' ')
+		{
+			write(1, "Error: invalid command\n", 23);
+			return (1);
+		}
+		else if (s[i] == ' ' && s[i + 1] == '\0')
+		{
+			write(1, "Error: invalid command\n", 23);
+			return (1);
+		}
+		else if (s[i] == ' ' && s[i + 1] == '\n')
+		{
+			write(1, "Error: invalid command\n", 23);
+			return (1);
+		}
+		else if (s[i] == '\n')
 		{
 			write(1, "Error: invalid command\n", 23);
 			return (1);
