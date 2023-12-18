@@ -53,6 +53,14 @@ int command_read(char *s)
 		return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] == ' ' && s[i + 1] == ' ' && s[i + 2] == ' ')
+		{
+			write(1, "Error: invalid command\n", 23);
+			return (1);
+		}
+	}
 	token = strtok(s, " ");
 	i = 0;
 	while (token != NULL && i < 100)
