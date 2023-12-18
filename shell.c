@@ -30,7 +30,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		if (*line == '\0')
 			continue;
 		if (strcmp(line, "exit") == 0)
-			break;
+			exit(2);
 		if (command_read(line) == 2)
 			break;
 	}
