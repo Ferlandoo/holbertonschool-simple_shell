@@ -52,11 +52,11 @@ int command_read(char *s)
 
 	if (strcmp(s, "exit") == 0)
 		return (2);
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] == ' ' && s[i+1] == ' ')
-			return (0);
-	}
+//	for (i = 0; s[i] != '\0'; i++)
+//	{
+//		if (s[i] == ' ' && s[i+1] == ' ')
+//			return (0);
+//	}
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
@@ -101,15 +101,6 @@ int execute(char *cmd_arr[])
 	if (pid > 0)
 	{
 		wait(&status);
-		if (WIFEXITED(status))
-		{
-			int exit_status = WEXITSTATUS(status);
-			if (exit_status != 0)
-			{
-				printf("Command '%s' failed with exit status %d\n", name, exit_status);
-				return (exit_status);
-			}
-		}
 	}
 	else if (pid == 0)
 	{
