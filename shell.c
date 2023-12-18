@@ -29,6 +29,8 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
+		if (strcmp(line, "exit") == 0)
+			break;
 		if (command_read(line) == 2)
 			break;
 	}
