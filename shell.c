@@ -30,9 +30,9 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		if (*line == '\0')
 			continue;
 		if (strcmp(line, "exit") == 0)
-			exit(2);
-		if (command_read(line) == 2)
 			break;
+		if (command_read(line) == 2)
+			exit(2);
 	}
 	free(line);
 	return (0);
