@@ -53,11 +53,6 @@ int command_read(char *s)
 		return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] == ' ' && s[i+1] == ' ')
-			return (0);
-	}
 	token = strtok(s, " ");
 	i = 0;
 	while (token != NULL && i < 100)
