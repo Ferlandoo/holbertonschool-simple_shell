@@ -29,14 +29,11 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
-		if (strcmp(line, "exit") == 0)
-			break;
-		if (line == NULL)
-			break;
 		if (command_read(line) == 2)
 			break;
 	}
 	free(line);
+	line = NULL;
 	return (0);
 }
 
@@ -52,6 +49,8 @@ int command_read(char *s)
 	char *token = NULL;
 	char *cmd_array[100];
 
+	if (strcmp(s, "exit") == 0)
+		return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
