@@ -29,8 +29,6 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
-		if (strcmp(line, "exit") == 0)
-			break;
 		if (command_read(line) == 2)
 			break;
 	}
@@ -52,11 +50,8 @@ int command_read(char *s)
 
 	if (strcmp(s, "exit") == 0)
 		fprintf(stderr, "exit\n");
-	return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
-	if (strcmp(s, "clear") == 0)
-		return (_clear());
 	token = strtok(s, " ");
 	i = 0;
 	while (token != NULL && i < 100)
