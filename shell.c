@@ -52,6 +52,7 @@ int command_read(char *s)
 
 	if (strcmp(s, "exit") == 0)
 		fprintf(stderr, "exit\n");
+	return (2);
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == ' ' && s[i + 1] == s[i])
