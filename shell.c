@@ -55,10 +55,25 @@ int command_read(char *s)
 	return (2);
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ')
+		if (s[i] == ' ' && s[i + 1] == ' ')
 		{
-			s[i] = '\0';
-			break;
+			fprintf(stderr, "Error: invalid command\n");
+			return (1);
+		}
+		else if (s[i] == ' ' && s[i + 1] == '\0')
+		{
+			fprintf(stderr, "Error: invalid command\n");
+			return (1);
+		}
+		else if (s[i] == ' ' && s[i + 1] == '\n')
+		{
+			fprintf(stderr, "Error: invalid command\n");
+			return (1);
+		}
+		else if (s[i] == '\n')
+		{
+			fprintf(stderr, "Error: invalid command\n");
+			return (1);
 		}
 	}
 	if (strcmp(s, "env") == 0)
