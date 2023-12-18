@@ -55,8 +55,11 @@ int command_read(char *s)
 	return (2);
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' || s[i + 1] == '\n')
-			return (0);
+		if (s[i] == ' ')
+		{
+			s[i] = '\0';
+			break;
+		}
 	}
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
