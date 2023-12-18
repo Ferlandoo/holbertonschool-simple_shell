@@ -63,6 +63,14 @@ int command_read(char *s)
 			return (0);
 		if (s[i] == ' ' && s[i+1] == '\t')
 			return (0);
+		if (s[i] == '\t' && s[i+1] == '\0')
+			return (0);
+		if (s[i] == '\t' && s[i+1] == ' ')
+			return (0);
+		if (s[i] == '\t' && s[i+1] == '\t')
+			return (0);
+		if (s[i] == '\t' && s[i+1] == '\n')
+			return (0);
 	}
 	token = strtok(s, " ");
 	i = 0;
