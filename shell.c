@@ -55,22 +55,16 @@ int command_read(char *s)
 		return (_printenv());
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' && s[i+1] == '\n')
-			return (0);
 		if (s[i] == ' ' && s[i+1] == ' ')
 			return (0);
-		if (s[i] == ' ' && s[i+1] == '\0')
-			return (0);
-		if (s[i] == ' ' && s[i+1] == '\t')
-			return (0);
-		if (s[i] == '\t' && s[i+1] == '\0')
-			return (0);
-		if (s[i] == '\t' && s[i+1] == ' ')
-			return (0);
-		if (s[i] == '\t' && s[i+1] == '\t')
-			return (0);
-		if (s[i] == '\t' && s[i+1] == '\n')
-			return (0);
+		if (s[0] == ' ' || s[0] == '\t')
+		{
+		write(1, name, strlen(name));
+		write(1, ": 1: ", 5);
+		write(1, s, strlen(s));
+		write(1, ": not found\n", 12);
+		return (0);
+		}
 	}
 	token = strtok(s, " ");
 	i = 0;
