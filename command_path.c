@@ -24,6 +24,9 @@ char *command_path(char *cmd)
 		return (NULL);
 	}
 	token = strtok(path_copy, ":");
+	if (_getenv("PATH")[0] == ':')
+		if (stat(cmd, &buf) == 0)
+			return (strdup(cmd));
 	while (token != NULL)
 	{
 		full_path = malloc(strlen(token) + strlen(cmd) + 2);
