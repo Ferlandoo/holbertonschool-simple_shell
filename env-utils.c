@@ -48,3 +48,15 @@ char *_getenv(char *var)
 	}
 	return (NULL);
 }
+
+/**
+ * _clear - Clears the screen
+ * @void: void
+ * Return: 0 on success, -1 on failure
+ */
+
+int _clear(void)
+{
+	printf("\033[H\033[J");
+	return (0);
+}

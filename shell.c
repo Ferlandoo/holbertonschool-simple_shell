@@ -55,10 +55,8 @@ int command_read(char *s)
 	return (2);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
-	while (*s == ' ')
-		s++;
-	if (*s == '\0')
-		return (0);
+	if (strcmp(s, "clear") == 0)
+		return (_clear());
 	token = strtok(s, " ");
 	i = 0;
 	while (token != NULL && i < 100)
