@@ -16,13 +16,11 @@ int _printenv(void)
 		fprintf(stderr, "Environment variable is null");
 		return (-1);
 	}
-	i = 0;
-	while (str[i] != '\0')
+	while (str != NULL)
 	{
-		write(1, str, strlen(str));
-		write(1, "\n", 1);
+		printf("%s\n", str);
+		i++;
 		str = environ[i];
-		++i;
 	}
 	return (0);
 }
