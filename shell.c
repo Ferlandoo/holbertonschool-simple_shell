@@ -91,7 +91,6 @@ int execute(char *cmd_arr[])
 	if (pid < 0)
 	{
 		perror("Error at creating a child process\n");
-		return (-1);
 	}
 	if (pid > 0)
 	{
@@ -101,7 +100,7 @@ int execute(char *cmd_arr[])
 	{
 		execve(exe_path, cmd_arr, environ);
 		perror("Error");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	free(exe_path);
 	return (0);
