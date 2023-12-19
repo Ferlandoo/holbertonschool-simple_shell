@@ -41,10 +41,10 @@ char *command_path(char *cmd)
 			free (path_copy);
 			return (full_path);
 		}
+		free (full_path);
 		token = strtok(NULL, ":");
 	}
 	free (path_copy);
-	free (full_path);
 	if (stat(cmd, &buf) == 0)
 		return (strdup(cmd));
 	return (NULL);
