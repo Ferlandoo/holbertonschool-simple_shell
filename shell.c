@@ -31,8 +31,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
-		if (command_read(line) == 3)
+		if (command_read(line) == 2)
 			break;
+		if (command_read(line) == 3)
+			continue;
 	}
 	free(line);
 	line = NULL;
