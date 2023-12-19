@@ -25,6 +25,8 @@ int main(int __attribute__((unused)) argc, char *argv[])
 				write(1, "\n", 1);
 			break;
 		}
+		if (*line == ' ')
+			continue;
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
 		if (*line == '\0')
