@@ -1,8 +1,21 @@
 # Simple Shell (Holberton School) 
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#simple-shell-holberton-school">About Project</a></li>
+    <li><a href="#general-workflow">General Workflow</a></li>
+    <li><a href="#installation-and-usage-of-program">Installation and Usage of Program</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#learning-objectives">Learning Objectives</a></li>
+    <li><a href="#files-contained-in-this-repository">Files contained in this repository </a></li>
+    <li><a href="#credits">Credits</a></li>
+  </ol>
+</details>
+
 This project presents a minimalistic shell implementation in C, offering users a fundamental command-line interface to interact with the underlying operating system. In Linux/Unix systems, a shell serves as a crucial interface between the user and the kernel, facilitating the execution of commands and managing processes. In the context of this simple shell, it performs three primary functions: allowing users to gracefully exit the shell, displaying environment variables, and executing generic commands. The implementation leverages system calls like **fork**, **execve**, and **wait** for process management and employs a straightforward approach to building command paths, ensuring a basic yet functional shell experience.
 
-## General workflow
+## General Workflow
 * **Reading the Command**: The shell uses the getline function to read user input and interpret the command.
 * **Command Execution**: The shell distinguishes between three functionalities:
 * **Exit**: The user can exit the shell by entering the '`exit`' command.
