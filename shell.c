@@ -106,7 +106,7 @@ int execute(char *cmd_arr[])
 	{
 		execve(exe_path, cmd_arr, environ);
 		perror("Error");
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	free(exe_path);
 	return (0);
