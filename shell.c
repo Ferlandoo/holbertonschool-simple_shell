@@ -25,13 +25,13 @@ int main(int __attribute__((unused)) argc, char *argv[])
 				write(1, "\n", 1);
 			break;
 		}
-		if (*line == ' ' && characters == 1)
+		if (*line == ' ')
 			continue;
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
-		if (command_read(line) == 2)
+		if (command_read(line) == 3)
 			break;
 	}
 	free(line);
