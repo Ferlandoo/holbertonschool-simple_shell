@@ -94,7 +94,12 @@ int execute(char *cmd_arr[])
 	}
 	if (pid > 0)
 	{
-		wait(&status);
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		if (WIFEXITED(status) != 0)
+			fprintf(stderr, "Error: %s: %d\n", name, WEXITSTATUS(status));
+			exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
 	{
