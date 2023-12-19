@@ -8,8 +8,8 @@
 
 char *command_path(char *cmd)
 {
-	char *path, *path_copy, *full_path = NULL, *token;
-	struct stat buf = {0};
+	char *path, *path_copy, *full_path, *token;
+	struct stat buf;
 
 	path = _getenv("PATH");
 	if (path == NULL)
