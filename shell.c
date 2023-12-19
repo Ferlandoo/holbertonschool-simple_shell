@@ -72,6 +72,7 @@ int execute(char *cmd_arr[])
 		exit(1);
 	}
 	free(exe_path);
+	free(cmd_arr);
 	return (0);
 }
 
