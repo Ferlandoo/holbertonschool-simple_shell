@@ -31,6 +31,7 @@ char *command_path(char *cmd)
 		{
 			fprintf(stderr, "Error allocating full path");
 			free (full_path);
+			free (path_copy);
 			return (NULL);
 		}
 		strcpy(full_path, token);
