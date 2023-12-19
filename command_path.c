@@ -30,7 +30,6 @@ char *command_path(char *cmd)
 		if (full_path == NULL)
 		{
 			fprintf(stderr, "Error allocating full path");
-			free (full_path);
 			free (path_copy);
 			return (NULL);
 		}
