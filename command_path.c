@@ -36,7 +36,6 @@ char *command_path(char *cmd)
 		strcpy(full_path, token);
 		strcat(full_path, "/");
 		strcat(full_path, cmd);
-		strcat(full_path, "\0");
 		if (stat(full_path, &buf) == 0)
 		{
 			free(path_copy);
