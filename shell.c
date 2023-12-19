@@ -47,6 +47,7 @@ int execute(char *cmd_arr[])
 	{
 		write(1, name, strlen(name));
 		write(1, ": not found\n", 12);
+		free(exe_path);
 		return (3);
 	}
 	pid = fork();
