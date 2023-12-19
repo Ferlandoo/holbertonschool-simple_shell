@@ -89,7 +89,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	size_t buf_size = 0;
 	ssize_t characters = 0;
 
-	char *name = argv[0];
+	name = argv[0];
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)

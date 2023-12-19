@@ -9,7 +9,7 @@
 char *command_path(char *cmd)
 {
 	char *path, *path_copy, *full_path = NULL, *token;
-	struct stat buf;
+	struct stat buf = {0};
 
 	path = _getenv("PATH");
 	if (path == NULL)
@@ -26,11 +26,11 @@ char *command_path(char *cmd)
 	token = strtok(path_copy, ":");
 	while (token != NULL)
 	{
-		free (full_path);
 		full_path = malloc(strlen(token) + strlen(cmd) + 2);
 		if (full_path == NULL)
 		{
 			fprintf(stderr, "Error allocating full path");
+			free (full_path);
 			return (NULL);
 		}
 		strcpy(full_path, token);
