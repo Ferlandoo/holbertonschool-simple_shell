@@ -25,16 +25,14 @@ int main(int __attribute__((unused)) argc, char *argv[])
 				write(1, "\n", 1);
 			break;
 		}
-		if (*line == ' ')
-			continue;
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
+		if (*line == ' ')
+			continue;
 		if (*line == '\0')
 			continue;
 		if (command_read(line) == 2)
 			break;
-		if (command_read(line) == 3)
-			continue;
 	}
 	free(line);
 	line = NULL;
