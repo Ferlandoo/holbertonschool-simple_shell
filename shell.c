@@ -109,6 +109,5 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			break;
 	}
 	free(line);
-	line = NULL;
 	return (0);
 }
