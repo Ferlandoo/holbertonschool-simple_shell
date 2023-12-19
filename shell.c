@@ -51,7 +51,7 @@ int command_read(char *s)
 	char *cmd_array[100];
 
 	if (strcmp(s, "exit") == 0)
-		return (2);
+		exit (EXIT_SUCCESS);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
