@@ -43,7 +43,6 @@ char *command_path(char *cmd)
 		}
 		free (full_path);
 		free (full_path);
-		free (full_path);
 		token = strtok(NULL, ":");
 	}
 	free (path_copy);
