@@ -27,8 +27,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		}
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
-		if (*line == ' ')
-			continue;
+		trim_whitespace(line);
 		if (*line == '\0')
 			continue;
 		if (command_read(line) == 2)

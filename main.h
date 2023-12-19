@@ -17,5 +17,6 @@ char *_getenv(char *var);
 char *command_path(char *cmd);
 int command_read(char *s);
 int execute(char *cmd_arr[]);
+void trim_whitespace(char *str);
 
 #endif
