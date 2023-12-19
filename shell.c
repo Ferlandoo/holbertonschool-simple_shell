@@ -52,7 +52,7 @@ int command_read(char *s)
 	char *cmd_array[100];
 
 	if (strcmp(s, "exit") == 0)
-		return (2);
+		exit (EXIT_SUCCESS);
 	if (strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
@@ -100,9 +100,11 @@ int execute(char *cmd_arr[])
 	}
 	else if (pid == 0)
 	{
-		execve(exe_path, cmd_arr, environ);
-		perror("Error");
-		exit(1);
+		if (execlp(exe_path, name, NULL) == -1)
+		{
+			perror("Error at executing the command\n");
+		}
+		exit (EXIT_FAILURE);
 	}
 	free(exe_path);
 	return (0);
