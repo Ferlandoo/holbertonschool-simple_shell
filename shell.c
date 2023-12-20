@@ -41,7 +41,8 @@ int execute(char *cmd_arr[])
 	int status;
 	char *name;
 
-	name = cmd_arr[0];
+	name = name = malloc(sizeof(char) * strlen(cmd_arr[0]));
+	strcpy(name, cmd_arr[0]);
 	exe_path = command_path(name);
 	if (exe_path == NULL)
 	{
@@ -71,6 +72,7 @@ int execute(char *cmd_arr[])
 		perror("Error");
 		exit(1);
 	}
+	free(name);
 	free(exe_path);
 	return (0);
 }
@@ -87,6 +89,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *line = NULL;
 	size_t buf_size = 0;
 	ssize_t characters = 0;
+	char *name;
 
 	name = malloc(sizeof(char) * strlen(argv[0]));
 	while (1)
