@@ -41,7 +41,7 @@ int execute(char *cmd_arr[])
 	int status;
 	char *name;
 
-	name = name = malloc(sizeof(char) * strlen(cmd_arr[0]));
+	name = malloc(sizeof(char) * strlen(cmd_arr[0]));
 	strcpy(name, cmd_arr[0]);
 	exe_path = command_path(name);
 	if (exe_path == NULL)
