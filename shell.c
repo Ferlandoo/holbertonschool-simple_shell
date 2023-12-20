@@ -21,8 +21,8 @@ int command_read(char *s)
 	while (token != NULL && i < 100)
 	{
 		cmd_array[i] = token;
-		i++;
 		token = strtok(NULL, " ");
+		++i;
 	}
 	cmd_array[i] = NULL;
 	return (execute(cmd_array));
