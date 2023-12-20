@@ -43,7 +43,8 @@ int execute(char *cmd_arr[])
 	exe_path = command_path(cmd_arr[0]);
 	if (exe_path == NULL)
 	{
-		fprintf(stderr, "Command not found\n");
+		write(1, cmd_arr[0], strlen(cmd_arr[0]));
+		write(1, ": not found\n", 12);
 		return (1);
 	}
 	pid = fork();
@@ -54,11 +55,15 @@ int execute(char *cmd_arr[])
 	}
 	if (pid > 0)
 	{
-		wait(&status);
-		if (WIFEXITED(status))
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		if (WEXITSTATUS(status) != 0)
+		{
 			exit(2);
+		}
 	}
-	if (pid == 0)
+	else if (pid == 0)
 	{
 		execve(exe_path, cmd_arr, environ);
 		perror("Error");
