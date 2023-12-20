@@ -22,7 +22,7 @@ int command_read(char *s)
 	{
 		cmd_array[i] = token;
 		token = strtok(NULL, " ");
-		++i;
+		i++;
 	}
 	cmd_array[i] = NULL;
 	return (execute(cmd_array));
