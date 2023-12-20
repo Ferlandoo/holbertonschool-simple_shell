@@ -54,13 +54,9 @@ int execute(char *cmd_arr[])
 	}
 	if (pid > 0)
 	{
-		do {
-			waitpid(pid, &status, WUNTRACED);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		if (WEXITSTATUS(status) != 0)
-		{
-			exit(2);
-		}
+		wait(&status);
+		if (WIFEXITED(status))
+			return (WEXITSTATUS(status));
 	}
 	else if (pid == 0)
 	{
