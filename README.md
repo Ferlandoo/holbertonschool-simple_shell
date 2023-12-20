@@ -15,7 +15,13 @@
 
 This project presents a minimalistic shell implementation in C, offering users a fundamental command-line interface to interact with the underlying operating system. In Linux/Unix systems, a shell serves as a crucial interface between the user and the kernel, facilitating the execution of commands and managing processes. In the context of this simple shell, it performs three primary functions: allowing users to gracefully exit the shell, displaying environment variables, and executing generic commands. The implementation leverages system calls like **fork**, **execve**, and **wait** for process management and employs a straightforward approach to building command paths, ensuring a basic yet functional shell experience.
 
+
 ## General Workflow
+
+<div align="right">
+<a href="#general-workflow"><img src="image.png" align="right" width="320" /></a>
+</div>
+
 * **Reading the Command**: The shell uses the getline function to read user input and interpret the command.
 * **Command Execution**: The shell distinguishes between three functionalities:
 * **Exit**: The user can exit the shell by entering the '`exit`' command.
@@ -25,6 +31,7 @@ This project presents a minimalistic shell implementation in C, offering users a
     * **execve**: Loads and executes the specified command in the new process.
     * **wait**: Parent process waits for the child process to complete.
 * **Building the Command Path**: For executing generic commands, the shell builds the command path by obtaining the command from the Unix file system and appending "`/cmd`" to include the custom command.
+
 
 ## Installation and Usage of Program
 **Prerequisites**
