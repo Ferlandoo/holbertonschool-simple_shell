@@ -39,14 +39,14 @@ int execute(char *cmd_arr[])
 	pid_t pid;
 	char *exe_path;
 	int status;
-	char *name = malloc(sizeof(char) * strlen(cmd_arr[0]));
+	char *name = malloc(sizeof(char) * strlen(cmd_arr[0]) + 1);
 
 	if (name == NULL)
 	{
 		perror("Error");
 		exit(1);
 	}
-	name = strcpy(name, cmd_arr[0]);
+	strcpy(name, cmd_arr[0]);
 	exe_path = command_path(name);
 	if (exe_path == NULL)
 	{
