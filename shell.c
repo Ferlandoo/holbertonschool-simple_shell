@@ -56,22 +56,15 @@ int execute(char *cmd_arr[])
 	{
 		wait(&status);
 		if (WIFEXITED(status))
-				exit(2);
+			exit(2);
 	}
-	else if (pid == 0)
+	if (pid == 0)
 	{
-		if (execve(exe_path, cmd_arr, environ) == -1)
-		{
-			fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), cmd_arr[0]);
-			free(exe_path);
-			exit(1);
-		}
-		else
-		{
-			free(exe_path);
-			exit(0);
-		}
+		execve(exe_path, cmd_arr, environ);
+		perror("Error");
+		exit(1);
 	}
+	free(exe_path);
 	return (0);
 }
 
