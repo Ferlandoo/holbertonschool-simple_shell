@@ -39,9 +39,13 @@ int execute(char *cmd_arr[])
 	pid_t pid;
 	char *exe_path;
 	int status;
-	char *name;
+	char *name = malloc(sizeof(char) * strlen(cmd_arr[0]));
 
-	name = malloc(sizeof(char) * strlen(cmd_arr[0]));
+	if (name == NULL)
+	{
+		perror("Error");
+		exit(1);
+	}
 	strcpy(name, cmd_arr[0]);
 	exe_path = command_path(name);
 	if (exe_path == NULL)
@@ -89,9 +93,13 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *line = NULL;
 	size_t buf_size = 0;
 	ssize_t characters = 0;
-	char *name;
+	char *name = malloc(sizeof(char) * strlen(argv[0]));
 
-	name = malloc(sizeof(char) * strlen(argv[0]));
+	if (name == NULL)
+	{
+		perror("Error");
+		exit(1);
+	}
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
