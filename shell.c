@@ -102,14 +102,15 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	}
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) == 1)
-			write(1, "$ ", 2);
+		strcpy(name, argv[0]);
+		write(1, name, strlen(name));
+		write(1, "$ ", 2);
 		characters = getline(&line, &buf_size, stdin);
 		if (characters == -1)
 		{
-			if (isatty(STDIN_FILENO) == 1)
-				write(1, "\n", 1);
-			break;
+			free(line);
+			free(name);
+			exit(1);
 		}
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
