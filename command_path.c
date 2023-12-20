@@ -26,7 +26,7 @@ char *command_path(char *cmd)
 	token = strtok(path_copy, ":");
 	while (token != NULL)
 	{
-		full_path = malloc(strlen(token) + strlen(cmd) + 2);
+		full_path = malloc(strlen(token) + strlen(cmd));
 		if (full_path == NULL)
 		{
 			fprintf(stderr, "Error allocating full path");
