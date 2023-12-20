@@ -63,10 +63,15 @@ int execute(char *cmd_arr[])
 		if (execve(exe_path, cmd_arr, environ) == -1)
 		{
 			fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), cmd_arr[0]);
-			exit (127);
+			free(exe_path);
+			exit(1);
+		}
+		else
+		{
+			free(exe_path);
+			exit(0);
 		}
 	}
-	free(exe_path);
 	return (0);
 }
 
