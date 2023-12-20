@@ -93,24 +93,17 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *line = NULL;
 	size_t buf_size = 0;
 	ssize_t characters = 0;
-	char *name = malloc(sizeof(char) * strlen(argv[0]));
 
-	if (name == NULL)
-	{
-		perror("Error");
-		exit(1);
-	}
 	while (1)
 	{
-		strcpy(name, argv[0]);
-		write(1, name, strlen(name));
-		write(1, "$ ", 2);
+		if (isatty(STDIN_FILENO) == 1)
+			write(1, "$ ", 2);
 		characters = getline(&line, &buf_size, stdin);
 		if (characters == -1)
 		{
-			free(line);
-			free(name);
-			exit(1);
+			if (isatty(STDIN_FILENO) == 1)
+				write(1, "\n", 1);
+			break;
 		}
 		if (line[characters - 1] == '\n')
 			line[characters - 1] = '\0';
@@ -121,7 +114,5 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			break;
 	}
 	free(line);
-	free(name);
-	close(STDIN_FILENO);
 	return (0);
 }
