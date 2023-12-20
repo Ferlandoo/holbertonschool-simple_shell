@@ -89,7 +89,6 @@ int main(void)
 	size_t buf_size = 0;
 	ssize_t characters = 0;
 
-	unsetenv("PATH");
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
