@@ -121,5 +121,6 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	}
 	free(line);
 	free(name);
+	close(STDIN_FILENO);
 	return (0);
 }
