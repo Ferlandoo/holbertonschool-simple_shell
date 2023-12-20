@@ -55,7 +55,7 @@ int execute(char *cmd_arr[])
 	if (pid > 0)
 	{
 		wait(&status);
-		if (WIFEXITED(status)
+		if (WIFEXITED(status))
 				exit(2);
 	}
 	else if (pid == 0)
