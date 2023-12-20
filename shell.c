@@ -44,7 +44,7 @@ int execute(char *cmd_arr[])
 	if (exe_path == NULL)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", cmd_arr[0]);
-		return (1);
+		exit (127);
 	}
 	pid = fork();
 	if (pid < 0)
