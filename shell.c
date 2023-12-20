@@ -46,7 +46,7 @@ int execute(char *cmd_arr[])
 	if (exe_path == NULL)
 	{
 		fprintf(stderr, "%s: command not found\n", name);
-		return (1);
+		return (3);
 	}
 	pid = fork();
 	if (pid < 0)
