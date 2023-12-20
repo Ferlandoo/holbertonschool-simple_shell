@@ -88,7 +88,7 @@ int execute(char *cmd_arr[])
  * Return: 0 on success, 1 on failure
  */
 
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(void)
 {
 	char *line = NULL;
 	size_t buf_size = 0;
