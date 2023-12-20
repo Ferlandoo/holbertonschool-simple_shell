@@ -43,8 +43,8 @@ int execute(char *cmd_arr[])
 	exe_path = command_path(cmd_arr[0]);
 	if (exe_path == NULL)
 	{
-		fprintf(stderr, "./hsh: 1: %s: not found\n", cmd_arr[0]);
-		exit (127);
+		fprintf(stderr, "Command not found\n");
+		return (1);
 	}
 	pid = fork();
 	if (pid < 0)
@@ -60,9 +60,11 @@ int execute(char *cmd_arr[])
 	}
 	else if (pid == 0)
 	{
-		execve(exe_path, cmd_arr, environ);
-		perror("Error");
-		exit(1);
+		if (execve(exe_path, cmd_arr, environ) == -1)
+		{
+			fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), cmd_arr[0]);
+			exit (127);
+		}
 	}
 	free(exe_path);
 	return (0);
