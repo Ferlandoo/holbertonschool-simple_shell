@@ -39,19 +39,11 @@ int execute(char *cmd_arr[])
 	pid_t pid;
 	char *exe_path;
 	int status;
-	char *name = malloc(sizeof(char) * strlen(cmd_arr[0]) + 1);
 
-	if (name == NULL)
-	{
-		perror("Error");
-		exit(1);
-	}
-	strcpy(name, cmd_arr[0]);
-	exe_path = command_path(name);
+	exe_path = command_path(cmd_arr[0]);
 	if (exe_path == NULL)
 	{
-		write(1, name, strlen(name));
-		write(1, ": not found\n", 12);
+		fprintf(stderr, "Command not found\n");
 		return (1);
 	}
 	pid = fork();
@@ -76,7 +68,6 @@ int execute(char *cmd_arr[])
 		perror("Error");
 		exit(1);
 	}
-	free(name);
 	free(exe_path);
 	return (0);
 }
